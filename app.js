@@ -55,26 +55,49 @@ document.getElementById('case-minus').addEventListener('click', function () {
 })
 */
 
+
+// update checkout area with shared function when + btn clicked
+function checkOut(param1){
+    const subTotal = document.getElementById("sub-total");
+    const subTotalText = parseInt(subTotal.innerText);
+    // for increase amount
+    let additionOfAmount = param1 + subTotalText;
+    subTotal.innerText = additionOfAmount;
+    // console.log(typeof subTotalText + " and value is " + subTotalText);
+
+    // // for decrease amount
+    // let substOfAmount =  subTotalText - param1;
+    // subTotal.innerText = substOfAmount;
+    // console.log(substOfAmount);
+}
+
+
+
 // handle phone product number value + 1
 document.getElementById("phone-plus").addEventListener("click", function (){
     const phoneNumber = document.getElementById("phone-number");
-    const phoneNumberValue = phoneNumber.value;
-    phoneNumber.value = parseInt(phoneNumberValue) + 1;
-    // console.log(phoneNumberValue);
+    const phoneNumberValue = parseInt(phoneNumber.value);
+    phoneNumber.value = phoneNumberValue + 1;
 
     // get and update price
     const phonePrice = document.getElementById('phone-price');
-    const phonePriceText = phonePrice.innerText;
-    phonePrice.innerText = parseInt(phonePriceText) + 1219;
-    // console.log(phonePriceText);
+    const phonePriceText = parseInt(phonePrice.innerText);
+    phonePrice.innerText = phonePriceText + 1219;
+
+    // update the amount value and store it
+    let updateAmount = phonePriceText + 1219;
+    // console.log("type is " + typeof updateAmount + " and " + updateAmount);
+    checkOut(updateAmount);
 })
+
+
 
 // handle phone product number value - 1
 document.getElementById("phone-minus").addEventListener("click", function (){
     const phoneNumber = document.getElementById("phone-number");
-    const phoneNumberValue = phoneNumber.value;
+    const phoneNumberValue = parseInt(phoneNumber.value);
     if (phoneNumberValue > 0){
-      phoneNumber.value = parseInt(phoneNumberValue) - 1;
+      phoneNumber.value = phoneNumberValue - 1;
     }
     // console.log(phoneNumberValue);
 
@@ -84,24 +107,31 @@ document.getElementById("phone-minus").addEventListener("click", function (){
     if (phonePriceText > 0){
       phonePrice.innerText = parseInt(phonePriceText) - 1219;
     }
+    // checkOut(updateAmount);
+
 })
 
 
 
-// handle case product  case plus button
+// handle case product  case + 1
 document.getElementById("case-plus").addEventListener("click", function (){
     
     // increasing case number value +1
     const caseNumber = document.getElementById("case-number");
-    const caseNumberValue = caseNumber.value;
-    caseNumber.value = parseInt(caseNumberValue) + 1;
+    const caseNumberValue = parseInt(caseNumber.value);
+    caseNumber.value =caseNumberValue + 1;
     // console.log(caseNumberValue);
 
     // get and update price
     const casePrice = document.getElementById('case-price');
-    const casePriceText = casePrice.innerText;
-    casePrice.innerText = parseInt(casePriceText) + 59;
+    const casePriceText = parseInt(casePrice.innerText);
+    casePrice.innerText = casePriceText + 59;
     // console.log(casePriceText);
+
+    // update the amount value and store it
+    let updateAmount = casePriceText + 59;
+    // console.log("type is " + typeof updateAmount + " and " + updateAmount);
+    checkOut(updateAmount);
 })
 
 
